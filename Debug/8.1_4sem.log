@@ -1,0 +1,7 @@
+﻿  main.cpp
+C:\Users\Вадим\source\repos\8.1_4sem\8.1_4sem\Timer.hpp(61,85): warning C4244: =: преобразование "_Rep" в "double", возможна потеря данных
+          with
+          [
+              _Rep=__int64
+          ]
+  8.1_4sem.vcxproj -> C:\Users\Вадим\source\repos\8.1_4sem\Debug\8.1_4sem.exe

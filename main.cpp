@@ -6,7 +6,10 @@
 #include <algorithm>
 #include <random>
 #include <execution>
+#include <mutex>
 #include "Timer.hpp"
+
+std::mutex mutex;
 
 inline bool inside(const double& x, const double& y)
 {
@@ -16,6 +19,7 @@ inline bool inside(const double& x, const double& y)
 
 double consistent_pi(const std::size_t quantity)
 {
+    std::lock_guard < std::mutex > lock(mutex);
     std::mt19937_64 rand;
     std::uniform_real_distribution <> distr(0.0, 1.0);
     std::size_t points_inside = 0;
@@ -32,6 +36,7 @@ double consistent_pi(const std::size_t quantity)
 
 double parallel_pi(const std::size_t quantity)
 {
+    std::lock_guard < std::mutex > lock(mutex);
     std::mt19937_64 rand;
     std::uniform_real_distribution <> distr(0.0, 1.0);
     std::vector <std::pair<double, double>> points(quantity);
